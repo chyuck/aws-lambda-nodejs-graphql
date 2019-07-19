@@ -1,0 +1,35 @@
+{
+  "name": "aws-lambda-nodejs-graphql",
+  "version": "1.0.0",
+  "description": "GraphQL application for AWS Lambda (NodeJS)",
+  "scripts": {
+    "test": "jest",
+    "deploy": "sls deploy",
+    "lint": "eslint ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chyuck/aws-lambda-nodejs-graphql.git"
+  },
+  "keywords": [
+    "graphql",
+    "aws",
+    "lambda",
+    "nodejs"
+  ],
+  "author": "Andrey Sergeev",
+  "license": "MIT",
+  "homepage": "https://github.com/chyuck/aws-lambda-nodejs-graphql#readme",
+  "devDependencies": {
+    "@babel/core": "^7.5.4",
+    "@babel/preset-env": "^7.5.4",
+    "babel-jest": "^24.8.0",
+    "eslint": "^6.0.1",
+    "jest": "^24.8.0"
+  },
+  "dependencies": {
+    "aws-sdk": "^2.495.0",
+    "graphql": "^14.4.2",
+    "uuid": "^3.3.2"
+  }
+}
