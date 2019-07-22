@@ -32,9 +32,11 @@ functions:
     package:
       include:
         - src/handler.js
-        - src/validator.js
+        - src/graphql.js
+        - src/dynamodb.js
         - node_modules/uuid/**
         - node_modules/graphql/**
+        - node_modules/iterall/**
   
 package:
   individually: true

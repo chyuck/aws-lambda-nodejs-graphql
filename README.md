@@ -32,3 +32,101 @@ export AWS_SESSION_TOKEN="..."
 ```bash
 yarn deploy
 ```
+
+
+## Testing ##
+
+### Create Order ###
+```bash
+curl -G https://rgtwdxbfd8.execute-api.us-east-1.amazonaws.com/dev/query --data-urlencode 'query=mutation{createOrder(product:"Apple",quantity:3){id,product,quantity,active,created,updated}}'
+```
+Result:
+```json
+{  
+   "data":{  
+      "createOrder":{  
+         "id":"5ea68890-acae-11e9-924d-d3c4082e5cdb",
+         "product":"Apple",
+         "quantity":3,
+         "active":true,
+         "created":"2019-07-22T18:27:32.376Z",
+         "updated":"2019-07-22T18:27:32.376Z"
+      }
+   }
+}
+```
+
+### Get Order ###
+```bash
+curl -G https://rgtwdxbfd8.execute-api.us-east-1.amazonaws.com/dev/query --data-urlencode 'query={order(id:"5ea68890-acae-11e9-924d-d3c4082e5cdb"){id,product,quantity,active,created,updated}}'
+```
+Result:
+```json
+{  
+   "data":{  
+      "order":{  
+         "id":"5ea68890-acae-11e9-924d-d3c4082e5cdb",
+         "product":"Apple",
+         "quantity":3,
+         "active":true,
+         "created":"2019-07-22T18:27:32.376Z",
+         "updated":"2019-07-22T18:27:32.376Z"
+      }
+   }
+}
+```
+
+### Update Order ###
+```bash
+curl -G https://rgtwdxbfd8.execute-api.us-east-1.amazonaws.com/dev/query --data-urlencode 'query=mutation{updateOrder(id:"5ea68890-acae-11e9-924d-d3c4082e5cdb",product:"Orange",quantity:1){id,product,quantity,active,created,updated}}'
+```
+Result:
+```json
+{  
+   "data":{  
+      "updateOrder":{  
+         "id":"5ea68890-acae-11e9-924d-d3c4082e5cdb",
+         "product":"Orange",
+         "quantity":1,
+         "active":true,
+         "created":"2019-07-22T18:27:32.376Z",
+         "updated":"2019-07-22T18:34:19.640Z"
+      }
+   }
+}
+```
+
+### List Orders ###
+```bash
+curl -G https://rgtwdxbfd8.execute-api.us-east-1.amazonaws.com/dev/query --data-urlencode 'query={orders{id,product,quantity,active,created,updated}}'
+```
+Result:
+```json
+{  
+   "data":{  
+      "orders":[  
+         {  
+            "id":"5ea68890-acae-11e9-924d-d3c4082e5cdb",
+            "product":"Orange",
+            "quantity":1,
+            "active":true,
+            "created":"2019-07-22T18:27:32.376Z",
+            "updated":"2019-07-22T18:34:19.640Z"
+         }
+      ]
+   }
+}
+```
+
+### Delete Order ###
+```bash
+curl -G https://rgtwdxbfd8.execute-api.us-east-1.amazonaws.com/dev/query --data-urlencode 'query=mutation{deleteOrder(id:"5ea68890-acae-11e9-924d-d3c4082e5cdb")}'
+```
+Result:
+```json
+{  
+   "data":{  
+      "deleteOrder":"5ea68890-acae-11e9-924d-d3c4082e5cdb"
+   }
+}
+```
